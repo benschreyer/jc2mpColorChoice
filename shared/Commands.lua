@@ -1,6 +1,6 @@
---setting values of colors
 --you can make your own custom colors with custom names just change the values of "colors" to Either Color.Premade Or Color(Red,Green,Blue) 
 --change the corresponding colors names to you chosen name Example:"barf_green"  (Dont put spaces in you color names!Use underscores instead)
+--setting up the color values for use with premade colors
 colors={}
 	colors[1]=Color.Red
 	colors[2]=Color.Blue
@@ -15,7 +15,7 @@ colors={}
 	colors[11]=Color.Red
 	colors[12]=Color.Green
 	colors[13]=Color.Blue
---setting up the command for the for loops
+--setting the list of inputs for colors
 	colorinp={}
 	colorinp[1]="red"
 	colorinp[2]="blue"
@@ -28,7 +28,8 @@ colors={}
 	colorinp[9]="forest_green"
 	colorinp[10]="yellow"
 	colorinp[11]="custom (red value) (green value) (blue value)"
-	--tells player the sript is installed
+	--[WARNING] Dont edit this area unless you know what your doing
+	--tells player the sript is installed when they join
 function informPlayer(args)
 Chat:Send(args.player,"This server has ColorChoice installed do /colors to view the colors you can choose from(your chosen color will be your wingsuit color)",Color.Chartreuse)
 end
@@ -45,7 +46,7 @@ function setColor(args)
 			end
 		end
 end
---prints all the commands
+--prints all the commands when /colors is used
 function help(args)
 			if(args.text=="/colors")
 				then 
@@ -56,6 +57,7 @@ function help(args)
 			end
 end
 --allows player to insert r g b values for their name
+--has saftey for dumb players wont try to set their color if they cont use the command correctly "PlayerInp[5]~=nil
 function customC(args)
 PlayerInp=args.text:split(" ")
 
