@@ -27,7 +27,7 @@ colors={}
 	colorinp[8]="deep_pink"
 	colorinp[9]="forest_green"
 	colorinp[10]="yellow"
-	colorinp[11]="custom (red) (green) (blue)"
+	colorinp[11]="custom (red value) (green value) (blue value)"
 	--tells player the sript is installed
 function informPlayer(args)
 Chat:Send(args.player,"This server has ColorChoice installed do /colors to view the colors you can choose from(your chosen color will be your wingsuit color)",Color.Chartreuse)
@@ -58,10 +58,11 @@ end
 --allows player to insert r g b values for their name
 function customC(args)
 PlayerInp=args.text:split(" ")
-	if(PlayerInp[1]=="/color" and PlayerInp[2]=="custom")
+
+	if(PlayerInp[1]=="/color" and PlayerInp[2]=="custom" and PlayerInp[5]~=nil)
 		then args.player:SetColor(Color(tonumber(PlayerInp[3]),tonumber(PlayerInp[4]),tonumber(PlayerInp[5])))
 		Chat:Send(args.player,"Color Set To:Custom Color",Color(tonumber(PlayerInp[3]),tonumber(PlayerInp[4]),tonumber(PlayerInp[5])))
-	end
+	end	
 end
 Events:Subscribe("PlayerChat",setColor)
 Events:Subscribe("PlayerChat",customC)
