@@ -1,33 +1,33 @@
 --you can make your own custom colors with custom names just change the values of "colors" to Either Color.Premade Or Color(Red,Green,Blue) 
 --change the corresponding colors names to you chosen name Example:"barf_green"  (Dont put spaces in you color names!Use underscores instead)
 --setting up the color values for use with premade colors
-colors={}
-	colors[1]=Color.Red
-	colors[2]=Color.Blue
-	colors[3]=Color.Orange
-	colors[4]=Color.Pink
-	colors[5]=Color.Purple
-	colors[6]=Color.Aqua
-	colors[7]=Color.White
-	colors[8]=Color.DeepPink
-	colors[9]=Color.ForestGreen
-	colors[10]=Color.Yellow
-	colors[11]=Color.Red
-	colors[12]=Color.Green
-	colors[13]=Color.Blue
+colorsValue={}
+	colorsValue[1]=Color.Red
+	colorsValue[2]=Color.Blue
+	colorsValue[3]=Color.Orange
+	colorsValue[4]=Color.Pink
+	colorsValue[5]=Color.Purple
+	colorsValue[6]=Color.Aqua
+	colorsValue[7]=Color.White
+	colorsValue[8]=Color.DeepPink
+	colorsValue[9]=Color.ForestGreen
+	colorsValue[10]=Color.Yellow
+	colorsValue[11]=Color.Red
+	colorsValue[12]=Color.Green
+	colorsValue[13]=Color.Blue
 --setting the list of inputs for colors
-	colorinp={}
-	colorinp[1]="red"
-	colorinp[2]="blue"
-	colorinp[3]="orange"
-	colorinp[4]="pink"
-	colorinp[5]="purple"
-	colorinp[6]="aqua"
-	colorinp[7]="white"
-	colorinp[8]="deep_pink"
-	colorinp[9]="forest_green"
-	colorinp[10]="yellow"
-	colorinp[11]="custom (red value) (green value) (blue value)"
+	colorsNames={}
+	colorsNames[1]="red"
+	colorsNames[2]="blue"
+	colorsNames[3]="orange"
+	colorsNames[4]="pink"
+	colorsNames[5]="purple"
+	colorsNames[6]="aqua"
+	colorsNames[7]="white"
+	colorsNames[8]="deep_pink"
+	colorsNames[9]="forest_green"
+	colorsNames[10]="yellow"
+	colorsNames[11]="custom (red value) (green value) (blue value)"
 	--[WARNING] Dont edit this area unless you know what your doing
 	--tells player the sript is installed when they join
 function informPlayer(args)
@@ -39,9 +39,9 @@ function setColor(args)
 	if(PlayerInp[1]=="/color")
 		then
 			for i=1,10 do
-				if(PlayerInp[2]==colorinp[i])
-				then args.player:SetColor(colors[i])
-				Chat:Send(args.player,"Color Set To:"..colorinp[i],colors[i])
+				if(PlayerInp[2]==colorsNames[i])
+				then args.player:SetColor(colorsValue[i])
+				Chat:Send(args.player,"Color Set To:"..colorsNames[i],colorsValue[i])
 				end
 			end
 		end
@@ -52,7 +52,7 @@ function help(args)
 				then 
 				Chat:Send(args.player,"Use /color with these colors to set your name color",Color.Chartreuse)
 				for j=1,11,1 do
-					 Chat:Send(args.player,colorinp[j],colors[j])
+					 Chat:Send(args.player,colorsNames[j],colorsValue[j])
 				end
 			end
 end
